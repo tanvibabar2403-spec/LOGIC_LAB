@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LogicLab | Gate Simulator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h2>LogicLab</h2>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="simulator.html">Simulator</a>
+    </nav>
+  </header>
+
+  <main class="simulator-container">
+    <p class="tag">DECO • DIGITAL ELECTRONICS</p>
+    <h1>Logic Gate Simulator</h1>
+    <p class="description">
+      Select a gate, change its inputs, and observe the output.
+    </p>
+
+    <section class="sim-card">
+      <label for="gateSelect">Select Logic Gate</label>
+      <select id="gateSelect">
+        <option value="AND">AND Gate</option>
+        <option value="OR">OR Gate</option>
+        <option value="NOT">NOT Gate</option>
+        <option value="NAND">NAND Gate</option>
+        <option value="NOR">NOR Gate</option>
+        <option value="XOR">XOR Gate</option>
+        <option value="XNOR">XNOR Gate</option>
+      </select>
+
+      <h2>Input Controls</h2>
+
+      <div class="input-row">
+        <label for="inputA">Input A</label>
+        <button id="inputA" class="switch" type="button"
+                aria-pressed="false">0</button>
+      </div>
+
+      <div class="input-row" id="inputBRow">
+        <label for="inputB">Input B</label>
+        <button id="inputB" class="switch" type="button"
+                aria-pressed="false">0</button>
+      </div>
+
+      <div class="circuit">
+        <div class="signal">A: <span id="signalA">0</span></div>
+        <div class="gate-symbol" id="gateSymbol">AND</div>
+        <div class="signal">Y: <span id="signalY">0</span></div>
+      </div>
+
+      <div class="output-panel">
+        <p>OUTPUT (Y)</p>
+        <div id="outputLed" class="led">0</div>
+        <p id="outputMessage">Output is LOW</p>
+      </div>
+
+      <div class="expression-panel">
+        <p>Boolean Expression</p>
+        <h3 id="expression">Y = A · B</h3>
+      </div>
+
+      <button id="resetButton" class="reset-btn" type="button">
+        Reset Inputs
+      </button>
+    </section>
+    
+<section class="truth-card">
+  <h2>Truth Table Generator</h2>
+  <p class="table-description">
+    The table updates automatically when you change the gate or inputs.
+  </p>
+
+  <div class="table-wrapper">
+    <table id="truthTable">
+      <thead>
+        <tr>
+           <th>A</th>
+           <th id="columnB">B</th>
+           <th id="outputHeader">Output (Y)</th>
+       </tr>
+   </thead>
+      <tbody id="truthTableBody">
+      </tbody>
+    </table>
+  </div>
+
+  <button id="exportButton" class="reset-btn" type="button">
+    Download CSV
+  </button>
+</section>
+
+  </main>
+
+  <footer>
+    <p>LogicLab | Digital Electronics and Computer Organization</p>
+  </footer>
+
+  <script src="simulator.js"></script>
+</body>
+</html>

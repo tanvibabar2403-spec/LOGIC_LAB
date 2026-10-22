@@ -1,0 +1,381 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #0b1120;
+  color: #f1f5f9;
+  line-height: 1.6;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 8%;
+  border-bottom: 1px solid #263247;
+}
+
+header h2 {
+  color: #67e8f9;
+}
+
+nav {
+  display: flex;
+  gap: 22px;
+}
+
+nav a {
+  color: #cbd5e1;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #67e8f9;
+}
+
+.hero {
+  text-align: center;
+  padding: 85px 20px 65px;
+}
+
+.tag {
+  color: #67e8f9;
+  letter-spacing: 3px;
+  font-size: 13px;
+}
+
+.hero h1 {
+  font-size: clamp(36px, 6vw, 60px);
+  line-height: 1.15;
+  margin: 20px 0;
+}
+
+.description {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  color: #aebbd0;
+}
+
+.start-btn {
+  display: inline-block;
+  padding: 13px 26px;
+  background: #06b6d4;
+  color: #07111f;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.start-btn:hover {
+  background: #67e8f9;
+}
+
+.gate-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 55px;
+}
+
+.gate {
+  border: 1px solid #334155;
+  background: #151f32;
+  padding: 18px 28px;
+  border-radius: 10px;
+  color: #67e8f9;
+  font-weight: bold;
+}
+
+.about {
+  text-align: center;
+  padding: 40px 20px 65px;
+}
+
+.about p {
+  max-width: 650px;
+  margin: 12px auto;
+  color: #aebbd0;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #263247;
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+@media (max-width: 500px) {
+  header {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  nav {
+    gap: 14px;
+  }
+
+  .hero {
+    padding-top: 55px;
+  }
+}
+
+
+/* Day 2: Logic gate simulator */
+
+.simulator-container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 55px 20px;
+  text-align: center;
+}
+
+.sim-card {
+  background: #151f32;
+  border: 1px solid #334155;
+  border-radius: 16px;
+  padding: 28px;
+  margin-top: 32px;
+  text-align: left;
+}
+
+.sim-card > label,
+.sim-card > select {
+  display: block;
+  width: 100%;
+}
+
+.sim-card > label {
+  margin-bottom: 8px;
+}
+
+.sim-card select {
+  padding: 12px;
+  border-radius: 8px;
+  background: #0b1120;
+  color: #f1f5f9;
+  border: 1px solid #475569;
+  margin-bottom: 28px;
+  font-size: 16px;
+}
+
+.sim-card h2 {
+  margin-bottom: 16px;
+}
+
+.input-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #334155;
+}
+
+.switch {
+  width: 64px;
+  padding: 10px;
+  border: 1px solid #64748b;
+  border-radius: 8px;
+  color: white;
+  background: #334155;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.switch.active {
+  background: #15803d;
+  border-color: #4ade80;
+}
+
+.switch:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.circuit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 32px 0;
+}
+
+.signal {
+  color: #cbd5e1;
+}
+
+.gate-symbol {
+  background: #0b1120;
+  border: 2px solid #67e8f9;
+  color: #67e8f9;
+  border-radius: 12px;
+  padding: 20px 18px;
+  font-weight: bold;
+  text-align: center;
+  min-width: 90px;
+}
+
+.output-panel {
+  text-align: center;
+  background: #0b1120;
+  padding: 24px;
+  border-radius: 12px;
+}
+
+.output-panel > p:first-child,
+.expression-panel > p {
+  color: #94a3b8;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.led {
+  display: inline-flex;
+  width: 74px;
+  height: 74px;
+  margin: 15px 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #334155;
+  color: white;
+  border: 3px solid #64748b;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.led.on {
+  background: #22c55e;
+  border-color: #86efac;
+  color: #052e16;
+  box-shadow: 0 0 22px #22c55e80;
+}
+
+.expression-panel {
+  margin-top: 22px;
+  text-align: center;
+  padding: 18px;
+  background: #1e293b;
+  border-radius: 10px;
+}
+
+.expression-panel h3 {
+  color: #67e8f9;
+  margin-top: 8px;
+}
+
+.reset-btn {
+  display: block;
+  margin: 24px auto 0;
+  padding: 12px 22px;
+  border: 1px solid #64748b;
+  background: transparent;
+  color: #f1f5f9;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.reset-btn:hover {
+  background: #334155;
+}
+
+@media (max-width: 500px) {
+  .sim-card {
+    padding: 18px;
+  }
+
+  .circuit {
+    gap: 6px;
+  }
+
+  .gate-symbol {
+    min-width: 72px;
+    padding: 16px 8px;
+  }
+}
+
+.overbar {
+  text-decoration: overline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #67e8f9;
+  display: inline-block;
+  padding-top: 4px;
+}
+
+
+/* Day 3: Truth table */
+
+.truth-card {
+  max-width: 760px;
+  margin: 0 auto 55px;
+  padding: 28px;
+  background: #151f32;
+  border: 1px solid #334155;
+  border-radius: 16px;
+}
+
+.truth-card h2 {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.table-description {
+  text-align: center;
+  color: #aebbd0;
+  margin-bottom: 22px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+#truthTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+#truthTable th,
+#truthTable td {
+  padding: 14px;
+  border: 1px solid #334155;
+}
+
+#truthTable th {
+  background: #0b1120;
+  color: #67e8f9;
+}
+
+#truthTable tbody tr {
+  background: #1e293b;
+}
+
+#truthTable tbody tr.active-row {
+  background: #14532d;
+  outline: 2px solid #4ade80;
+  outline-offset: -2px;
+}
+
+#truthTable tbody tr.active-row td {
+  color: #dcfce7;
+  font-weight: bold;
+}
+
+@media (max-width: 500px) {
+  .truth-card {
+    padding: 16px;
+    margin: 0 12px 35px;
+  }
+
+  #truthTable th,
+  #truthTable td {
+    padding: 10px 6px;
+  }
+}
