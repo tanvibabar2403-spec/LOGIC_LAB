@@ -379,3 +379,86 @@ footer {
     padding: 10px 6px;
   }
 }
+
+/* Side-by-side layout */
+.simulator-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+  width: 100%;
+  margin-top: 32px;
+}
+
+/* Equal dimensions for both boxes */
+.simulator-layout .sim-card,
+.simulator-layout .truth-card {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  height: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Consistent box spacing */
+.simulator-layout .sim-card,
+.simulator-layout .truth-card {
+  padding: 24px;
+}
+
+/* Keep the table inside its box */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Responsive layout for tablets and mobile */
+@media (max-width: 768px) {
+  .simulator-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .simulator-layout .sim-card,
+  .simulator-layout .truth-card {
+    height: auto;
+  }
+}
+
+/* Increase the overall container width */
+.simulator-container {
+  max-width: 1400px;
+  padding: 30px 20px;
+}
+
+/* Make both boxes wider and shorter */
+.simulator-layout {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.simulator-layout .sim-card,
+.simulator-layout .truth-card {
+  width: 95%;
+  min-height: 350px;
+  padding: 20px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.circuit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.signal {
+  white-space: nowrap;
+}
+
+.signal[hidden] {
+  display: none;
+}
+

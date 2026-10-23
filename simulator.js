@@ -9,6 +9,8 @@ const outputMessage = document.getElementById("outputMessage");
 const expression = document.getElementById("expression");
 const gateSymbol = document.getElementById("gateSymbol");
 const signalA = document.getElementById("signalA");
+const signalB = document.getElementById("signalB");
+const signalBDisplay = document.getElementById("signalBDisplay");
 const signalY = document.getElementById("signalY");
 const resetButton = document.getElementById("resetButton");
 
@@ -133,6 +135,11 @@ function updateSimulator() {
   gateSymbol.textContent = gate;
   signalA.textContent = a;
   signalY.textContent = output;
+  // Update B value in the circuit diagram
+  signalB.textContent = b;
+
+  // Hide B for the NOT gate
+  signalBDisplay.hidden = isNotGate;
 
   if (gate === "NAND") {
   expression.innerHTML = 'Y = <span class="overbar">(A · B)</span>';

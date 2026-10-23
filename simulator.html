@@ -22,7 +22,7 @@
     <p class="description">
       Select a gate, change its inputs, and observe the output.
     </p>
-
+    <div class="simulator-layout">
     <section class="sim-card">
       <label for="gateSelect">Select Logic Gate</label>
       <select id="gateSelect">
@@ -49,11 +49,23 @@
                 aria-pressed="false">0</button>
       </div>
 
+      
       <div class="circuit">
-        <div class="signal">A: <span id="signalA">0</span></div>
+        <div class="signal">
+          A: <span id="signalA">0</span>
+        </div>
+
+        <div class="signal" id="signalBDisplay">
+          B: <span id="signalB">0</span>
+        </div>
+
         <div class="gate-symbol" id="gateSymbol">AND</div>
-        <div class="signal">Y: <span id="signalY">0</span></div>
+
+        <div class="signal">
+          Y: <span id="signalY">0</span>
+        </div>
       </div>
+
 
       <div class="output-panel">
         <p>OUTPUT (Y)</p>
@@ -94,8 +106,8 @@
   <button id="exportButton" class="reset-btn" type="button">
     Download CSV
   </button>
-</section>
-
+ </section>
+ </div> 
   </main>
 
   <footer>
